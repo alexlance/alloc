@@ -1,5 +1,3 @@
-[![Code Climate](https://codeclimate.com/github/cyberitsolutions/alloc/badges/gpa.svg)](https://codeclimate.com/github/cyberitsolutions/alloc) [![Issue Count](https://codeclimate.com/github/cyberitsolutions/alloc/badges/issue_count.svg)](https://codeclimate.com/github/cyberitsolutions/alloc)
-
 # allocPSA
 allocPSA is the web-app that takes care of your projects, employees, time
 sheets, invoicing and customers.
@@ -17,15 +15,11 @@ hosting enquiries.
 ## License
 allocPSA is under the GNU Affero General Public License. For more info please
 see the LICENSE file or visit the [GNU Affero General Public
-License](http://www.gnu.org/licenses/agpl-3.0.en.html) webpage.  
+License](http://www.gnu.org/licenses/agpl-3.0.en.html) webpage.
 
-## Developers!
-We need help! This project receives very little development these days (early
-2016), so all help is much appreciated. :)
-
-I (cjbayliss) am working on a way to make it simple for devs to deploy and test
-allocPSA. I'll update the document in the future with help in that regard. If
-you have ideas, feel free to create an issue here on GitHub with suggestions.
+## Developers
+This project receives very little development these days so feel free to submit
+a pull request if you're interested in improving alloc.
 
 # Installation
 Please note: If you are upgrading, please read the _Upgrading_ section below.
