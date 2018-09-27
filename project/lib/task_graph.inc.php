@@ -214,7 +214,7 @@ class task_graph
   }
 
   function draw_today() {
-#$x = $this->date_stamp_to_x(mktime());
+#$x = $this->date_stamp_to_x(time());
     $x = $this->date_to_x(date("Y-m-d"));
     imageDashedLine($this->image, $x, $this->top_margin, $x, $this->height - $this->bottom_margin, $this->color_today);
     imageDashedLine($this->image, $x + 1, $this->top_margin, $x + 1, $this->height - $this->bottom_margin, $this->color_today);

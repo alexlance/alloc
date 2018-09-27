@@ -131,7 +131,7 @@ $files = get_attachments("whatsnew",0);
 if (is_array($files) && count($files)) {
   while ($f = array_pop($files)) {
     // Only show entries that are newer that 4 weeks old
-    if (format_date("U",basename($f["path"])) > mktime() - (60*60*24*28)) {
+    if (format_date("U",basename($f["path"])) > time() - (60*60*24*28)) {
       $x++;
       if($x>3) break; 
       $str.= $br."<b>".$f["restore_name"]."</b>";

@@ -921,7 +921,7 @@ class task extends db_entity {
     $scale_halved = sprintf("%d",config::get_config_item("taskPriorityScale")/2);
 
     if ($dateTargetCompletion) {
-      $daysUntilDue = (format_date("U",$dateTargetCompletion) - mktime()) / 60 / 60 / 24;
+      $daysUntilDue = (format_date("U",$dateTargetCompletion) - time()) / 60 / 60 / 24;
       $mult = atan($daysUntilDue / $spread) / 3.14 * $scale + $scale_halved;
     } else {
       $mult = 8;
@@ -1171,11 +1171,11 @@ class task extends db_entity {
     }
 
     $date_actual_start = format_date("U",$date_actual_start);
-    $time_spent = mktime() - $date_actual_start;
+    $time_spent = time() - $date_actual_start;
     $time_per_percent = $time_spent / $percent_complete;
     $percent_left = 100 - $percent_complete;
     $time_left = $percent_left * $time_per_percent;
-    $date_forecast_completion = mktime() + $time_left;
+    $date_forecast_completion = time() + $time_left;
     return $date_forecast_completion;
   }
 

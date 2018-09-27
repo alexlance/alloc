@@ -2645,7 +2645,7 @@
       $p_header['mtime'] = $p_filedescr['mtime'];
     }
     else if ($p_filedescr['type'] == 'virtual_file') {
-      $p_header['mtime'] = mktime();
+      $p_header['mtime'] = time();
     }
     else {
       $p_header['mtime'] = filemtime($p_filename);

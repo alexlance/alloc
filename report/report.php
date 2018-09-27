@@ -321,7 +321,7 @@ if ($_POST["do_step_3"]) {
       header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
       header('Content-Type: application/octet-stream');
       header('Content-Size: '.strlen($TPL["result_row"]));
-      header('Content-Disposition: attachment; filename="csv_'.mktime().'.csv"');
+      header('Content-Disposition: attachment; filename="csv_'.time().'.csv"');
       echo $TPL["result_row"];
       exit;
     }

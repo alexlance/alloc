@@ -425,7 +425,7 @@ class timeSheetItem extends db_entity {
     $current_user =& singleton("current_user");
 
     $personID or $personID = $current_user->get_id();
-    $start    or $start    = date("Y-m-d",mktime()-(60*60*24*28));
+    $start    or $start    = date("Y-m-d",time()-(60*60*24*28));
     $end      or $end      = date("Y-m-d");
 
     $q = prepare("SELECT dateTimeSheetItem, sum(timeSheetItemDuration*timeUnitSeconds) / 3600 AS hours
@@ -459,7 +459,7 @@ class timeSheetItem extends db_entity {
     $current_user =& singleton("current_user");
 
     $personID or $personID = $current_user->get_id();
-    $start    or $start    = date("Y-m-d",mktime()-(60*60*24*28));
+    $start    or $start    = date("Y-m-d",time()-(60*60*24*28));
     $end      or $end      = date("Y-m-d");
 
     $q = prepare("SELECT CONCAT(YEAR(dateTimeSheetItem),'-',MONTH(dateTimeSheetItem)) AS dateTimeSheetItem

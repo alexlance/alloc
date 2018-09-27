@@ -552,7 +552,7 @@ class timeSheet extends db_entity {
         $row["hoursWarn"] = page::help("This time sheet has gone over ".$current_user->prefs["timeSheetHoursWarn"]." hours.",page::warn());
       }
       if ($t->get_value("status") == "edit" && imp($current_user->prefs["timeSheetDaysWarn"]) 
-      && (mktime()-format_date("U",$t->get_value("dateFrom")))/60/60/24 >= $current_user->prefs["timeSheetDaysWarn"]) {
+      && (time()-format_date("U",$t->get_value("dateFrom")))/60/60/24 >= $current_user->prefs["timeSheetDaysWarn"]) {
         $row["daysWarn"] = page::help("This time sheet is over ".$current_user->prefs["timeSheetDaysWarn"]." days old.",page::warn());
       }
 

@@ -58,8 +58,8 @@ class session {
 
   // Call this in a login page to start session 
   function Start($row,$nuke_prev_sessions=true) {
-    $this->key = md5($row["personID"]."mix it up#@!".md5(mktime().md5(microtime())));
-    $this->Put("session_started", mktime());
+    $this->key = md5($row["personID"]."mix it up#@!".md5(time().md5(microtime())));
+    $this->Put("session_started", time());
     if ($nuke_prev_sessions && config::get_config_item("singleSession")) {
       $this->db->query("DELETE FROM sess WHERE personID = %d",$row["personID"]);
     }
@@ -80,7 +80,7 @@ class session {
     if ($this->Expired()) {
       $this->Destroy();
     } else if ($this->Started()) {
-      $this->Put("session_started",mktime());
+      $this->Put("session_started",time());
       $this->db->query("UPDATE sess SET sessData = '%s' WHERE sessID = '%s'"
                   , $this->Encode($this->session_data), $this->key);
     }
@@ -184,7 +184,7 @@ class session {
 
   // if $this->session_life seconds have passed then session has expired
   function Expired() {
-    if ($this->Get("session_started") && (mktime() > ($this->Get("session_started")+$this->session_life))) {
+    if ($this->Get("session_started") && (time() > ($this->Get("session_started")+$this->session_life))) {
       return true;
     }
   } 
