@@ -8,7 +8,7 @@ CREATE TABLE absence (
   absenceType varchar(255) default NULL,
   contactDetails text,
   personID integer NOT NULL
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS announcement;
 CREATE TABLE announcement (
@@ -18,7 +18,7 @@ CREATE TABLE announcement (
   personID integer NOT NULL,
   displayFromDate date default NULL,
   displayToDate date default NULL
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS client;
 CREATE TABLE client (
@@ -42,7 +42,7 @@ CREATE TABLE client (
   clientCategory integer DEFAULT 1,
   clientCreatedTime datetime default NULL,
   clientURL TEXT DEFAULT NULL
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS clientContact;
 CREATE TABLE clientContact (
@@ -61,7 +61,7 @@ CREATE TABLE clientContact (
   clientContactCountry varchar(255) default NULL,
   primaryContact boolean default false,
   clientContactActive boolean default true
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS comment;
 CREATE TABLE comment (
@@ -80,7 +80,7 @@ CREATE TABLE comment (
   commentEmailUID VARCHAR(255) DEFAULT NULL,
   commentEmailMessageID TEXT DEFAULT NULL,
   commentMimeParts TEXT DEFAULT NULL,
-  comment TEXT) ENGINE=InnoDB PACK_KEYS=0;
+  comment TEXT) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS config;
 CREATE TABLE config (
@@ -88,12 +88,12 @@ CREATE TABLE config (
   name varchar(255) NOT NULL DEFAULT '',
   value text NOT NULL,
   type varchar(255) NOT NULL default 'text'
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS error;
 CREATE TABLE error (
   errorID varchar(255) NOT NULL PRIMARY KEY
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS exchangeRate;
 CREATE TABLE exchangeRate (
@@ -103,7 +103,7 @@ CREATE TABLE exchangeRate (
   fromCurrency varchar(3) NOT NULL,
   toCurrency   varchar(3) NOT NULL,
   exchangeRate DECIMAL(14,5) NOT NULL DEFAULT 0
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS expenseForm;
 CREATE TABLE expenseForm (
@@ -119,7 +119,7 @@ CREATE TABLE expenseForm (
   expenseFormFinalised boolean NOT NULL default false,
   seekClientReimbursement boolean NOT NULL default false,
   expenseFormComment text default NULL
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS history;
 CREATE TABLE history (
@@ -129,14 +129,14 @@ CREATE TABLE history (
   the_args varchar(255) default NULL,
   personID integer NOT NULL,
   the_label varchar(255) default ''
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS indexQueue;
 CREATE TABLE indexQueue (
   indexQueueID integer NOT NULL auto_increment PRIMARY KEY,
   entity varchar(255) NOT NULL,
   entityID integer NOT NULL
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS invoice;
 CREATE TABLE invoice (
@@ -157,7 +157,7 @@ CREATE TABLE invoice (
   invoiceCreatedUser integer default NULL,
   invoiceModifiedTime datetime default NULL,
   invoiceModifiedUser integer default NULL
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS invoiceItem;
 CREATE TABLE invoiceItem (
@@ -175,7 +175,7 @@ CREATE TABLE invoiceItem (
   iiAmount BIGINT DEFAULT NULL,
   iiTax DECIMAL(9,2) DEFAULT '0.00',
   iiDate date DEFAULT NULL
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS invoiceEntity;
 CREATE TABLE invoiceEntity (
@@ -185,7 +185,7 @@ CREATE TABLE invoiceEntity (
   expenseFormID integer DEFAULT NULL,
   productSaleID integer DEFAULT NULL,
   useItems BOOLEAN DEFAULT false
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS invoiceRepeat;
 CREATE TABLE invoiceRepeat (
@@ -194,14 +194,14 @@ CREATE TABLE invoiceRepeat (
   personID integer NOT NULL,
   message TEXT DEFAULT NULL,
   active BOOLEAN DEFAULT true
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS invoiceRepeatDate;
 CREATE TABLE invoiceRepeatDate (
   invoiceRepeatDateID integer NOT NULL auto_increment PRIMARY KEY,
   invoiceRepeatID integer NOT NULL,
   invoiceDate date NOT NULL
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS item;
 CREATE TABLE item (
@@ -213,7 +213,7 @@ CREATE TABLE item (
   itemType varchar(255) NOT NULL default 'cd',
   itemAuthor varchar(255) default '',
   personID integer default NULL
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS loan;
 CREATE TABLE loan (
@@ -225,7 +225,7 @@ CREATE TABLE loan (
   dateBorrowed date NOT NULL,
   dateToBeReturned date default NULL,
   dateReturned date default NULL
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS patchLog;
 CREATE TABLE patchLog (
@@ -233,7 +233,7 @@ CREATE TABLE patchLog (
   patchName varchar(255) NOT NULL DEFAULT '',
   patchDesc text,
   patchDate datetime NOT NULL
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS permission;
 CREATE TABLE permission (
@@ -244,7 +244,7 @@ CREATE TABLE permission (
   sortKey integer default '100',
   actions integer default NULL,
   comment text
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS person;
 CREATE TABLE person (
@@ -269,7 +269,7 @@ CREATE TABLE person (
   emergencyContact varchar(255) default '',
   defaultTimeSheetRate BIGINT DEFAULT NULL,
   defaultTimeSheetRateUnitID integer DEFAULT NULL
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS project;
 CREATE TABLE project (
@@ -302,7 +302,7 @@ CREATE TABLE project (
   defaultTaskLimit DECIMAL(7,2) DEFAULT NULL,
   defaultTimeSheetRate BIGINT DEFAULT NULL,
   defaultTimeSheetRateUnitID integer DEFAULT NULL
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS projectCommissionPerson;
 CREATE TABLE projectCommissionPerson (
@@ -311,7 +311,7 @@ CREATE TABLE projectCommissionPerson (
   personID integer DEFAULT NULL,
   commissionPercent decimal(5,3) default '0.000',
   tfID integer NOT NULL
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS projectPerson;
 CREATE TABLE projectPerson (
@@ -324,7 +324,7 @@ CREATE TABLE projectPerson (
   rateUnitID integer default NULL,
   projectPersonModifiedUser integer DEFAULT NULL,
   emailDateRegex varchar(255) default NULL
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS role;
 CREATE TABLE role (
@@ -333,7 +333,7 @@ CREATE TABLE role (
   roleHandle varchar(255) default NULL,
   roleLevel varchar(255) NOT NULL,
   roleSequence integer default NULL
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS reminder;
 CREATE TABLE reminder (
@@ -354,7 +354,7 @@ CREATE TABLE reminder (
   reminderModifiedTime datetime DEFAULT NULL,
   reminderModifiedUser integer DEFAULT NULL,
   reminderActive BOOLEAN NOT NULL DEFAULT true
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS reminderRecipient;
 CREATE TABLE reminderRecipient (
@@ -362,7 +362,7 @@ CREATE TABLE reminderRecipient (
   reminderID integer NOT NULL,
   personID integer,
   metaPersonID integer
-) ENGINE=InnoDB PACK_KEYS = 0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS = 0;
 
 DROP TABLE IF EXISTS sentEmailLog;
 CREATE TABLE sentEmailLog (
@@ -374,14 +374,14 @@ CREATE TABLE sentEmailLog (
   sentEmailType varchar(255) DEFAULT NULL,
   sentEmailLogCreatedTime datetime default NULL,
   sentEmailLogCreatedUser integer default NULL
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS sess;
 CREATE TABLE sess (
   sessID varchar(32) NOT NULL default '' PRIMARY KEY,
   personID integer NOT NULL,
   sessData text
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS skill;
 CREATE TABLE skill (
@@ -389,7 +389,7 @@ CREATE TABLE skill (
   skillName varchar(40) NOT NULL default '',
   skillDescription text,
   skillClass varchar(40) NOT NULL default ''
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS proficiency;
 CREATE TABLE proficiency (
@@ -397,13 +397,13 @@ CREATE TABLE proficiency (
   personID integer NOT NULL,
   skillID integer NOT NULL,
   skillProficiency varchar(255) NOT NULL default 'Novice'
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS tag;
 CREATE TABLE tag (
   taskID integer NOT NULL,
   name varchar(255) NOT NULL
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS task;
 CREATE TABLE task (
@@ -433,14 +433,14 @@ CREATE TABLE task (
   duplicateTaskID integer default NULL,
   estimatorID integer DEFAULT NULL,
   taskStatus varchar(255) NOT NULL
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS pendingTask;
 CREATE TABLE pendingTask (
   taskID integer NOT NULL,
   pendingTaskID integer NOT NULL,
   PRIMARY KEY(taskID, pendingTaskID)
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS audit;
 CREATE TABLE audit (
@@ -451,7 +451,7 @@ CREATE TABLE audit (
   dateChanged datetime NOT NULL,
   field varchar(255) default NULL,
   value text
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS interestedParty;
 CREATE TABLE interestedParty (
@@ -466,7 +466,7 @@ CREATE TABLE interestedParty (
   interestedPartyCreatedUser integer DEFAULT NULL,
   interestedPartyCreatedTime datetime DEFAULT NULL,
   interestedPartyActive boolean DEFAULT true
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS commentTemplate;
 CREATE TABLE commentTemplate (
@@ -475,7 +475,7 @@ CREATE TABLE commentTemplate (
   commentTemplateText text,
   commentTemplateType varchar(255) DEFAULT NULL,
   commentTemplateModifiedTime datetime DEFAULT NULL
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS tf;
 CREATE TABLE tf (
@@ -487,14 +487,14 @@ CREATE TABLE tf (
   qpEmployeeNum integer default NULL,
   quickenAccount varchar(255) default NULL,
   tfActive boolean NOT NULL DEFAULT true
-  ) ENGINE=InnoDB PACK_KEYS=0;
+  ) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS tfPerson;
 CREATE TABLE tfPerson (
   tfPersonID integer NOT NULL auto_increment PRIMARY KEY,
   tfID integer NOT NULL,
   personID integer NOT NULL
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS timeSheet;
 CREATE TABLE timeSheet (
@@ -514,7 +514,7 @@ CREATE TABLE timeSheet (
   recipient_tfID integer default NULL,
   customerBilledDollars BIGINT DEFAULT NULL,
   currencyTypeID VARCHAR(3) NOT NULL
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS timeSheetItem;
 CREATE TABLE timeSheetItem (
@@ -537,7 +537,7 @@ CREATE TABLE timeSheetItem (
   timeSheetItemCreatedUser integer default NULL,
   timeSheetItemModifiedTime datetime DEFAULT NULL,
   timeSheetItemModifiedUser integer DEFAULT NULL
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS tsiHint;
 CREATE TABLE tsiHint (
@@ -551,7 +551,7 @@ CREATE TABLE tsiHint (
   tsiHintCreatedUser integer default NULL,
   tsiHintModifiedTime datetime DEFAULT NULL,
   tsiHintModifiedUser integer DEFAULT NULL
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS timeUnit;
 CREATE TABLE timeUnit (
@@ -562,7 +562,7 @@ CREATE TABLE timeUnit (
   timeUnitSeconds integer default NULL,
   timeUnitActive boolean default false,
   timeUnitSequence integer default NULL
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS token;
 CREATE TABLE token (
@@ -577,7 +577,7 @@ CREATE TABLE token (
   tokenActive boolean DEFAULT false,
   tokenCreatedBy integer NOT NULL,
   tokenCreatedDate datetime NOT NULL
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS tokenAction;
 CREATE TABLE tokenAction (
@@ -585,7 +585,7 @@ CREATE TABLE tokenAction (
   tokenAction VARCHAR(32) NOT NULL DEFAULT '',
   tokenActionType VARCHAR(32),
   tokenActionMethod VARCHAR(32)
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS transaction;
 CREATE TABLE transaction (
@@ -617,7 +617,7 @@ CREATE TABLE transaction (
   productCostID integer default NULL,
   transactionRepeatID integer default NULL,
   transactionGroupID integer default NULL
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS transactionRepeat;
 CREATE TABLE transactionRepeat (
@@ -642,7 +642,7 @@ CREATE TABLE transactionRepeat (
   status varchar(255) NOT NULL default 'pending',
   transactionType varchar(255) NOT NULL,
   reimbursementRequired boolean NOT NULL default false
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS product;
 CREATE TABLE product (
@@ -654,7 +654,7 @@ CREATE TABLE product (
   description varchar(255),
   comment TEXT,
   productActive boolean NOT NULL default true
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS productCost;
 CREATE TABLE productCost (
@@ -667,7 +667,7 @@ CREATE TABLE productCost (
   description varchar(255),
   tax boolean DEFAULT NULL,
   productCostActive boolean NOT NULL DEFAULT true
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS productSale;
 CREATE TABLE productSale (
@@ -684,7 +684,7 @@ CREATE TABLE productSale (
   productSaleDate date default NULL,
   extRef VARCHAR(255) DEFAULT NULL,
   extRefDate date DEFAULT NULL
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 DROP TABLE IF EXISTS productSaleItem;
 CREATE TABLE productSaleItem (
@@ -696,7 +696,7 @@ CREATE TABLE productSaleItem (
   sellPriceIncTax boolean NOT NULL default false,
   quantity DECIMAL(19,2) NOT NULL DEFAULT 1,
   description varchar(255)
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 
 -- Meta data tables
@@ -706,7 +706,7 @@ CREATE TABLE absenceType (
   absenceTypeID varchar(255) PRIMARY KEY,
   absenceTypeSeq integer NOT NULL,
   absenceTypeActive boolean DEFAULT true
-)ENGINE=InnoDB PACK_KEYS=0;
+)ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 
 DROP TABLE IF EXISTS clientStatus;
@@ -714,7 +714,7 @@ CREATE TABLE clientStatus (
   clientStatusID varchar(255) PRIMARY KEY,
   clientStatusSeq integer NOT NULL,
   clientStatusActive boolean DEFAULT true
-)ENGINE=InnoDB PACK_KEYS=0;
+)ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 
 
@@ -723,7 +723,7 @@ CREATE TABLE configType (
   configTypeID varchar(255) PRIMARY KEY,
   configTypeSeq integer NOT NULL,
   configTypeActive boolean DEFAULT true
-)ENGINE=InnoDB PACK_KEYS=0;
+)ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 
 
@@ -732,7 +732,7 @@ CREATE TABLE invoiceStatus (
   invoiceStatusID varchar(255) PRIMARY KEY,
   invoiceStatusSeq integer NOT NULL,
   invoiceStatusActive boolean DEFAULT true
-)ENGINE=InnoDB PACK_KEYS=0;
+)ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 
 
@@ -741,7 +741,7 @@ CREATE TABLE itemType (
   itemTypeID varchar(255) PRIMARY KEY,
   itemTypeSeq integer NOT NULL,
   itemTypeActive boolean DEFAULT true
-)ENGINE=InnoDB PACK_KEYS=0;
+)ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 
 
@@ -750,7 +750,7 @@ CREATE TABLE projectType (
   projectTypeID varchar(255) PRIMARY KEY,
   projectTypeSeq integer NOT NULL,
   projectTypeActive boolean DEFAULT true
-)ENGINE=InnoDB PACK_KEYS=0;
+)ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 
 
@@ -762,7 +762,7 @@ CREATE TABLE currencyType (
   numberToBasic integer DEFAULT 0,
   currencyTypeSeq integer NOT NULL,
   currencyTypeActive boolean DEFAULT true
-)ENGINE=InnoDB PACK_KEYS=0;
+)ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 
 
@@ -771,7 +771,7 @@ CREATE TABLE projectStatus (
   projectStatusID varchar(255) PRIMARY KEY,
   projectStatusSeq integer NOT NULL,
   projectStatusActive boolean DEFAULT true
-)ENGINE=InnoDB PACK_KEYS=0;
+)ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 
 
@@ -780,7 +780,7 @@ CREATE TABLE roleLevel (
   roleLevelID varchar(255) PRIMARY KEY,
   roleLevelSeq integer NOT NULL,
   roleLevelActive boolean DEFAULT true
-)ENGINE=InnoDB PACK_KEYS=0;
+)ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 
 
@@ -789,7 +789,7 @@ CREATE TABLE reminderRecuringInterval (
   reminderRecuringIntervalID varchar(255) PRIMARY KEY,
   reminderRecuringIntervalSeq integer NOT NULL,
   reminderRecuringIntervalActive boolean DEFAULT true
-)ENGINE=InnoDB PACK_KEYS=0;
+)ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 
 
@@ -798,7 +798,7 @@ CREATE TABLE reminderAdvNoticeInterval (
   reminderAdvNoticeIntervalID varchar(255) PRIMARY KEY,
   reminderAdvNoticeIntervalSeq integer NOT NULL,
   reminderAdvNoticeIntervalActive boolean DEFAULT true
-)ENGINE=InnoDB PACK_KEYS=0;
+)ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 
 
@@ -807,7 +807,7 @@ CREATE TABLE sentEmailType (
   sentEmailTypeID varchar(255) PRIMARY KEY,
   sentEmailTypeSeq integer NOT NULL,
   sentEmailTypeActive boolean DEFAULT true
-)ENGINE=InnoDB PACK_KEYS=0;
+)ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 
 
@@ -816,7 +816,7 @@ CREATE TABLE skillProficiency (
   skillProficiencyID varchar(255) PRIMARY KEY,
   skillProficiencySeq integer NOT NULL,
   skillProficiencyActive boolean DEFAULT true
-)ENGINE=InnoDB PACK_KEYS=0;
+)ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 
 
@@ -825,7 +825,7 @@ CREATE TABLE taskType (
   taskTypeID varchar(255) PRIMARY KEY,
   taskTypeSeq integer NOT NULL,
   taskTypeActive boolean default true
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 
 
@@ -836,7 +836,7 @@ CREATE TABLE taskStatus (
   taskStatusColour varchar(255) DEFAULT NULL,
   taskStatusSeq integer NOT NULL,
   taskStatusActive boolean default true
-) ENGINE=InnoDB PACK_KEYS=0;
+) ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 
 
@@ -845,7 +845,7 @@ CREATE TABLE timeSheetStatus (
   timeSheetStatusID varchar(255) PRIMARY KEY,
   timeSheetStatusSeq integer NOT NULL,
   timeSheetStatusActive boolean DEFAULT true
-)ENGINE=InnoDB PACK_KEYS=0;
+)ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 
 
@@ -854,7 +854,7 @@ CREATE TABLE transactionStatus (
   transactionStatusID varchar(255) PRIMARY KEY,
   transactionStatusSeq integer NOT NULL,
   transactionStatusActive boolean DEFAULT true
-)ENGINE=InnoDB PACK_KEYS=0;
+)ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 
 
@@ -863,7 +863,7 @@ CREATE TABLE transactionType (
   transactionTypeID varchar(255) PRIMARY KEY,
   transactionTypeSeq integer NOT NULL,
   transactionTypeActive boolean DEFAULT true
-)ENGINE=InnoDB PACK_KEYS=0;
+)ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 
 
@@ -872,7 +872,7 @@ CREATE TABLE productSaleStatus (
   productSaleStatusID varchar(255) PRIMARY KEY,
   productSaleStatusSeq integer NOT NULL,
   productSaleStatusActive boolean DEFAULT true
-)ENGINE=InnoDB PACK_KEYS=0;
+)ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 
 
@@ -882,7 +882,7 @@ CREATE TABLE timeSheetItemMultiplier (
   timeSheetItemMultiplierName varchar(255),
   timeSheetItemMultiplierSeq integer NOT NULL,
   timeSheetItemMultiplierActive boolean DEFAULT true
-)ENGINE=InnoDB PACK_KEYS=0;
+)ENGINE=InnoDB CHARSET=utf8 PACK_KEYS=0;
 
 
 
